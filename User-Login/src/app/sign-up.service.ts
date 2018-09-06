@@ -17,13 +17,13 @@ export class SignUpService {
     return this.http.post("http://localhost:5050/api/Users/Register", user);
   }
   USerLogIn(user: Login) {
-    return this.http.post("http://localhost:5050/api/Users/Login", user);
+    return this.http.post("http://localhost:5050/api/Users/Login", user, { withCredentials: true });
   }
   UserLogOut(){
     return this.http.post("http://localhost:5050/api/Users/Logout","");
   }
   GetDomain(){
-    return this.http.get("https://localhost:44334/api/questions/domain"); 
+    return this.http.get("https://localhost:44334/api/questions/domain");
   }
   GetUser(){
     return this.http.get("http://localhost:5050/api/Users/Quiz")

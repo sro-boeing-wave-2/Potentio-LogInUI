@@ -26,22 +26,23 @@ export class DashboardBodyComponent implements OnInit {
     });
 
   }
-  private quizurl = "http://localhost:5050/api/Users";
+  private quizurl = "http://localhost:4500/start";
   private url="";
 
   GetUserID() {
-    return this.signupservice.GetUser().subscribe(result =>console.log(result));
+    return this.signupservice.GetUser().subscribe();
   }
 
   async RedirectToQuiz(DomainName: string) {
     // this.signupservice.GetUser().subscribe(result=>{ this.selectedUser =result.json();
     // var userid = await this.GetUserID();
     // console.log(userid);
-    this.GetUserID();
+    var uid = this.GetUserID();
+    console.log(uid);
       // this.url = `${this.quizurl}/${this.selectedUser.id}/${DomainName}`;
     // });
    // console.log(this.url);
-    
+
   // this.document.location.href = this.url;
 
   }
