@@ -26,6 +26,6 @@ export class SignUpService {
     return this.http.get("http://localhost:44334/api/questions/domain");
   }
   GetUser(){
-    return this.http.get("http://localhost:5050/api/Users/Quiz")
+    return this.http.get("http://localhost:5050/api/Users/Quiz", { withCredentials: true});
   }
 }

@@ -30,15 +30,22 @@ export class DashboardBodyComponent implements OnInit {
   private url="";
 
   GetUserID() {
-    return this.signupservice.GetUser().subscribe();
+    return this.signupservice.GetUser().subscribe(result => {this.selectedUser = result.json(); console.log(result.json);});
   }
 
   async RedirectToQuiz(DomainName: string) {
     // this.signupservice.GetUser().subscribe(result=>{ this.selectedUser =result.json();
     // var userid = await this.GetUserID();
     // console.log(userid);
-    var uid = this.GetUserID();
-    console.log(uid);
+    // await this.GetUserID();
+    this.signupservice.GetUser().subscribe(result => {this.selectedUser = result.json();
+    console.log(this.selectedUser.id);
+    this.url = `${this.quizurl}/${this.selectedUser.id}/${DomainName}`;
+    this.document.location.href = this.url;
+    });
+    // this.signupservice.GetUser();
+    // var uid = this.selectedUser.id;
+    // console.log(uid);
       // this.url = `${this.quizurl}/${this.selectedUser.id}/${DomainName}`;
     // });
    // console.log(this.url);
