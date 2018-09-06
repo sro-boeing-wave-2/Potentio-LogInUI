@@ -23,7 +23,7 @@ export class SignUpService {
     return this.http.post("http://localhost:5050/api/Users/Logout","");
   }
   GetDomain(){
-    return this.http.get("https://localhost:44334/api/questions/domain");
+    return this.http.get("http://localhost:44334/api/questions/domain");
   }
   GetUser(){
     return this.http.get("http://localhost:5050/api/Users/Quiz")
